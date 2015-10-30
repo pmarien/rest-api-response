@@ -4,7 +4,7 @@ namespace PMarien\RestApiResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
- * @author Philipp Marien <marien@eosnewmedia.de>
+ * @author Philipp Marien <philipp.marien@gmail.com>
  */
 abstract class AbstractApiResponse extends JsonResponse
 {

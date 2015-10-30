@@ -4,7 +4,7 @@ namespace PMarien\RestApiResponse;
 use PMarien\RestApiResponse\Exception\CriticalException;
 
 /**
- * @author Philipp Marien <marien@eosnewmedia.de>
+ * @author Philipp Marien <philipp.marien@gmail.com>
  */
 class ApiResponse extends AbstractApiResponse
 {

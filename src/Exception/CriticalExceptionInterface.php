@@ -2,7 +2,7 @@
 namespace PMarien\RestApiResponse\Exception;
 
 /**
- * @author Philipp Marien <marien@eosnewmedia.de>
+ * @author Philipp Marien <philipp.marien@gmail.com>
  */
 
 interface CriticalExceptionInterface extends ExceptionInterface

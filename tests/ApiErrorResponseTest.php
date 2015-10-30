@@ -8,7 +8,7 @@ use PMarien\RestApiResponse\Exception\UncriticalException;
 use PMarien\RestApiResponse\Exception\UncriticalExceptionList;
 
 /**
- * @author Philipp Marien <marien@eosnewmedia.de>
+ * @author Philipp Marien <philipp.marien@gmail.com>
  */
 class ApiErrorResponseTest extends \PHPUnit_Framework_TestCase
 {

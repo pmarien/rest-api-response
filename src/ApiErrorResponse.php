@@ -8,7 +8,7 @@ use PMarien\RestApiResponse\Exception\UncriticalExceptionInterface;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * @author Philipp Marien <marien@eosnewmedia.de>
+ * @author Philipp Marien <philipp.marien@gmail.com>
  */
 class ApiErrorResponse extends AbstractApiResponse
 {

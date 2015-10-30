@@ -4,7 +4,7 @@ namespace PMarien\RestApiResponse\Tests\Mocks;
 use PMarien\RestApiResponse\JsonEncodableInterface;
 
 /**
- * @author Philipp Marien <marien@eosnewmedia.de>
+ * @author Philipp Marien <philipp.marien@gmail.com>
  */
 class JsonEncodable implements JsonEncodableInterface
 {

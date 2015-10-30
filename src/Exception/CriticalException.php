@@ -4,7 +4,7 @@ namespace PMarien\RestApiResponse\Exception;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * @author Philipp Marien <marien@eosnewmedia.de>
+ * @author Philipp Marien <philipp.marien@gmail.com>
  */
 class CriticalException extends AbstractException implements CriticalExceptionInterface
 {

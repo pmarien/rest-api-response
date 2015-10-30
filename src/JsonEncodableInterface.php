@@ -2,7 +2,7 @@
 namespace PMarien\RestApiResponse;
 
 /**
- * @author Philipp Marien <marien@eosnewmedia.de>
+ * @author Philipp Marien <philipp.marien@gmail.com>
  */
 
 interface JsonEncodableInterface

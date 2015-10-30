@@ -5,7 +5,7 @@ use PMarien\RestApiResponse\ApiResponse;
 use PMarien\RestApiResponse\Tests\Mocks\JsonEncodable;
 
 /**
- * @author Philipp Marien <marien@eosnewmedia.de>
+ * @author Philipp Marien <philipp.marien@gmail.com>
  */
 class ApiResponseTest extends \PHPUnit_Framework_TestCase
 {
