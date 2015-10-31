@@ -1,7 +1,7 @@
 Rest API Response Library
 =========================
 [![Build Status](https://travis-ci.org/pmarien/rest-api-response.svg)](https://travis-ci.org/pmarien/rest-api-response)
-[![Coverage Status](https://coveralls.io/repos/pmarien/rest-api-response/badge.svg?branch=master&service=github)](https://coveralls.io/github/pmarien/rest-api-response?branch=master)
+[![Coverage Status](https://coveralls.io/repos/pmarien/rest-api-response/badge.svg?branch=develop&service=github)](https://coveralls.io/github/pmarien/rest-api-response?branch=develop)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/358209df-2792-425b-ae62-eacc6742db3c/mini.png)](https://insight.sensiolabs.com/projects/358209df-2792-425b-ae62-eacc6742db3c)
 
 This Library provides an API-Handling abstraction on top of the Symfony HTTP-Foundation-Component for RESTful JSON-API's.
