@@ -12,7 +12,7 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">Rest API Response Library</h1>
-      <h2 class="project-tagline">This library provides a extension for the symfony/http-foundation component to build standardized json responses.</h2>
+      <h2 class="project-tagline">This library provides a extension for the symfony http-foundation component to build standardized json api responses.</h2>
       <a href="https://github.com/pmarien/rest-api-response" class="btn">View on GitHub</a>
       <a href="https://github.com/pmarien/rest-api-response/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/pmarien/rest-api-response/tarball/master" class="btn">Download .tar.gz</a>
@@ -23,14 +23,20 @@
 <a id="rest-api-response-library" class="anchor" href="#rest-api-response-library" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rest API Response Library</h1>
 
 <p><a href="https://travis-ci.org/pmarien/rest-api-response"><img src="https://travis-ci.org/pmarien/rest-api-response.svg" alt="Build Status"></a>
-<a href="https://coveralls.io/github/pmarien/rest-api-response?branch=master"><img src="https://coveralls.io/repos/pmarien/rest-api-response/badge.svg?branch=master&amp;service=github" alt="Coverage Status"></a>
+<a href="https://coveralls.io/github/pmarien/rest-api-response?branch=develop"><img src="https://coveralls.io/repos/pmarien/rest-api-response/badge.svg?branch=develop&amp;service=github" alt="Coverage Status"></a>
 <a href="https://insight.sensiolabs.com/projects/358209df-2792-425b-ae62-eacc6742db3c"><img src="https://insight.sensiolabs.com/projects/358209df-2792-425b-ae62-eacc6742db3c/mini.png" alt="SensioLabsInsight"></a></p>
 
-<p>This Library provides an API-Handling abstraction on top of the Symfony HTTP-Foundation-Component for RESTful JSON-API's.</p>
+<p>This Library provides a Response abstraction for RESTful JSON-API's on top of the Symfony HTTP-Foundation-Component.</p>
 
 <p>The Library defines custom Exceptions and Exception-Interfaces for Error Handling. </p>
 
 <p>There is a Response-Class for handling of successfull responses and an Error-Response-Class for Exception-Responses.</p>
+
+<h2>
+<a id="install-with-composer" class="anchor" href="#install-with-composer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install with Composer</h2>
+
+<pre><code>composer require pmarien/rest-api-response
+</code></pre>
 
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
@@ -38,11 +44,17 @@
 <h3>
 <a id="json-output" class="anchor" href="#json-output" aria-hidden="true"><span class="octicon octicon-link"></span></a>JSON Output</h3>
 
-<p>Status: <em>indicates, weather the request was successful or not</em></p>
+<p><strong>Status</strong>:</p>
 
-<p>Count: <em>Number of results which are delivered within the results array</em></p>
+<p><em>indicates, weather the request was successful or not</em></p>
 
-<p>Results: <em>Array of one or more data objects (your data)</em></p>
+<p><strong>Count</strong>:</p>
+
+<p><em>Number of results which are delivered within the results array</em></p>
+
+<p><strong>Results</strong>:</p>
+
+<p><em>Array of one or more data objects (your data)</em></p>
 
 <h4>
 <a id="success" class="anchor" href="#success" aria-hidden="true"><span class="octicon octicon-link"></span></a>Success</h4>
@@ -94,7 +106,7 @@
 <h4>
 <a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h4>
 
-<p>your Class</p>
+<p><strong>your Class</strong></p>
 
 <pre><code>class CustomObject implements JsonEncodableInterface {
 
@@ -120,14 +132,14 @@
 }
 </code></pre>
 
-<p>your Controller Action</p>
+<p><strong>your Controller Action</strong></p>
 
 <pre><code>public function testAction(){
     return new ApiResponse(new CustomObject());
 }    
 </code></pre>
 
-<p>Json-Response</p>
+<p><strong>Json-Response</strong></p>
 
 <pre><code>{
     "status": "success",
@@ -145,26 +157,41 @@
 
 <p>There are four special Exceptions and Interfaces defined in this Library:</p>
 
-<p>ExceptionInterface: <em>Provides a Method called "getMetaData" which should return an array with custom debug data for the error response</em></p>
+<p><strong>ExceptionInterface</strong>:</p>
 
-<p>UncriticalExceptionInterface: <em>If an Exception implements these Interface, the error response will return the error object and status but with a HTTP-Status-Code 200 (Ok)</em></p>
+<p><em>Provides a Method called "getMetaData" which should return an array with custom debug data for the error response</em></p>
 
-<p>CriticalExceptionInterface: <em>With these Interface you are able to define a custom HTTP-Status-Code instead of the default 500 (Internal Server Error) Status</em></p>
+<p><strong>UncriticalExceptionInterface</strong>:</p>
 
-<p>ExceptionListInterface: <em>With these Interface you are able to define more than one error result object for one response</em></p>
+<p><em>If an Exception implements these Interface, the error response will return the error object and status but with a HTTP-Status-Code 200 (Ok)</em></p>
 
-<h5>
-<a id="please-note-that-your-custom-exception-must-extend-the-basic-php-exception-even-if-you-implement-one-ore-more-of-the-interfaces" class="anchor" href="#please-note-that-your-custom-exception-must-extend-the-basic-php-exception-even-if-you-implement-one-ore-more-of-the-interfaces" aria-hidden="true"><span class="octicon octicon-link"></span></a>Please note that your custom Exception must extend the basic php exception, even if you implement one ore more of the interfaces.</h5>
+<p><strong>CriticalExceptionInterface</strong>:</p>
+
+<p><em>With these Interface you are able to define a custom HTTP-Status-Code instead of the default 500 (Internal Server Error) Status</em></p>
+
+<p><strong>ExceptionListInterface</strong>: </p>
+
+<p><em>With these Interface you are able to define more than one error result object for one response</em></p>
+
+<p><strong>Please note that your custom Exception must extend the basic php exception, even if you implement one ore more of the interfaces.</strong></p>
 
 <p>There are also predefined exceptions ready to use:</p>
 
-<p>UncriticalException: <em>Implements the ExceptionInterface and the UncriticalExceptionInterface</em></p>
+<p><strong>UncriticalException</strong>:</p>
 
-<p>CriticalException: <em>Implements the ExceptionInterface and the CriticalExceptionInterface</em></p>
+<p><em>Implements the ExceptionInterface and the UncriticalExceptionInterface</em></p>
 
-<p>UncriticalExceptionExceptionList: <em>Implements the ExceptionInterface, the UncriticalExceptionInterface and the ExceptionListInterface</em></p>
+<p><strong>CriticalException</strong>:</p>
 
-<p>CriticalExceptionExceptionList: <em>Implements the ExceptionInterface, the CriticalExceptionInterface and the ExceptionListInterface</em></p>
+<p><em>Implements the ExceptionInterface and the CriticalExceptionInterface</em></p>
+
+<p><strong>UncriticalExceptionExceptionList</strong>:</p>
+
+<p><em>Implements the ExceptionInterface, the UncriticalExceptionInterface and the ExceptionListInterface</em></p>
+
+<p><strong>CriticalExceptionExceptionList</strong>:</p>
+
+<p><em>Implements the ExceptionInterface, the CriticalExceptionInterface and the ExceptionListInterface</em></p>
 
 <h2>
 <a id="licence" class="anchor" href="#licence" aria-hidden="true"><span class="octicon octicon-link"></span></a>Licence</h2>
