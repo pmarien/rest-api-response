@@ -4,20 +4,30 @@ Rest API Response Library
 [![Coverage Status](https://coveralls.io/repos/pmarien/rest-api-response/badge.svg?branch=develop&service=github)](https://coveralls.io/github/pmarien/rest-api-response?branch=develop)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/358209df-2792-425b-ae62-eacc6742db3c/mini.png)](https://insight.sensiolabs.com/projects/358209df-2792-425b-ae62-eacc6742db3c)
 
-This Library provides an API-Handling abstraction on top of the Symfony HTTP-Foundation-Component for RESTful JSON-API's.
+This Library provides a Response abstraction for RESTful JSON-API's on top of the Symfony HTTP-Foundation-Component.
 
 The Library defines custom Exceptions and Exception-Interfaces for Error Handling. 
 
 There is a Response-Class for handling of successfull responses and an Error-Response-Class for Exception-Responses.
 
+## Install with Composer
+
+    composer require pmarien/rest-api-response
+
 ## Usage
 ### JSON Output
 
-Status: *indicates, weather the request was successful or not*
- 
-Count: *Number of results which are delivered within the results array*
+**Status**:
 
-Results: *Array of one or more data objects (your data)*
+*indicates, weather the request was successful or not*
+ 
+**Count**:
+
+*Number of results which are delivered within the results array*
+
+**Results**:
+
+*Array of one or more data objects (your data)*
 
 #### Success
 
@@ -59,7 +69,7 @@ By default, protected and private properties of objects will be ignored be json\
 To build a response from custom objects, this library provides an Interface (JsonEncodableInterface). Objects which implement these Interface can be handled on custom way.
 
 #### Example
-your Class
+**your Class**
 
     class CustomObject implements JsonEncodableInterface {
     
@@ -84,13 +94,13 @@ your Class
         }
     }
 
-your Controller Action
+**your Controller Action**
 
     public function testAction(){
         return new ApiResponse(new CustomObject());
     }    
 
-Json-Response
+**Json-Response**
 
     {
         "status": "success",
@@ -105,25 +115,41 @@ Json-Response
 ### Exceptions
 There are four special Exceptions and Interfaces defined in this Library:
 
-ExceptionInterface: *Provides a Method called "getMetaData" which should return an array with custom debug data for the error response*
+**ExceptionInterface**:
 
-UncriticalExceptionInterface: *If an Exception implements these Interface, the error response will return the error object and status but with a HTTP-Status-Code 200 (Ok)*
+*Provides a Method called "getMetaData" which should return an array with custom debug data for the error response*
 
-CriticalExceptionInterface: *With these Interface you are able to define a custom HTTP-Status-Code instead of the default 500 (Internal Server Error) Status*
+**UncriticalExceptionInterface**:
 
-ExceptionListInterface: *With these Interface you are able to define more than one error result object for one response*
+*If an Exception implements these Interface, the error response will return the error object and status but with a HTTP-Status-Code 200 (Ok)*
 
-##### Please note that your custom Exception must extend the basic php exception, even if you implement one ore more of the interfaces.
+**CriticalExceptionInterface**:
+
+*With these Interface you are able to define a custom HTTP-Status-Code instead of the default 500 (Internal Server Error) Status*
+
+**ExceptionListInterface**: 
+
+*With these Interface you are able to define more than one error result object for one response*
+
+**Please note that your custom Exception must extend the basic php exception, even if you implement one ore more of the interfaces.**
 
 There are also predefined exceptions ready to use:
 
-UncriticalException: *Implements the ExceptionInterface and the UncriticalExceptionInterface*
+**UncriticalException**:
 
-CriticalException: *Implements the ExceptionInterface and the CriticalExceptionInterface*
+*Implements the ExceptionInterface and the UncriticalExceptionInterface*
 
-UncriticalExceptionExceptionList: *Implements the ExceptionInterface, the UncriticalExceptionInterface and the ExceptionListInterface*
+**CriticalException**:
 
-CriticalExceptionExceptionList: *Implements the ExceptionInterface, the CriticalExceptionInterface and the ExceptionListInterface*
+*Implements the ExceptionInterface and the CriticalExceptionInterface*
+
+**UncriticalExceptionExceptionList**:
+
+*Implements the ExceptionInterface, the UncriticalExceptionInterface and the ExceptionListInterface*
+
+**CriticalExceptionExceptionList**:
+
+*Implements the ExceptionInterface, the CriticalExceptionInterface and the ExceptionListInterface*
 
 ## Licence
 This library is under MIT Licence.
