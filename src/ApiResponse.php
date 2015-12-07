@@ -91,20 +91,17 @@ class ApiResponse extends AbstractApiResponse
      */
     protected function isCollection(array $array)
     {
-        if (count($array) === 1) {
-            return false;
-        }
-        $collection = true;
+        $isCollection = true;
 
         $i = 0;
         foreach ($array as $key => $value) {
-            if ($key !== $i || ! is_array($value)) {
-                $collection = false;
+            if ($key !== $i || (!is_array($value) && !is_object($value))) {
+                $isCollection = false;
                 break;
             }
             $i++;
         }
 
-        return $collection;
+        return $isCollection;
     }
 }
