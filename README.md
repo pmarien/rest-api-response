@@ -14,6 +14,12 @@ There is a Response-Class for handling of successfull responses and an Error-Res
 
     composer require pmarien/rest-api-response
 
+### Version
+If you use the symfony/http-foundation in any version lower than 3.0 please use version 1.* of these library.
+
+If you use the symfony/http-foundation in any version higher than 3.0 please use version 2.* of these library.
+
+
 ## Usage
 ### JSON Output
 
