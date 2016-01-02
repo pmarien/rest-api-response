@@ -15,7 +15,8 @@ abstract class AbstractApiResponse extends JsonResponse
      */
     public function __construct($data = null, $status = 200, $headers = array())
     {
-        parent::__construct($this->buildResponseArray($data), $status, $headers);
+        parent::__construct($this->buildResponseArray($data), $status,
+          $headers);
     }
 
     /**
@@ -40,9 +41,9 @@ abstract class AbstractApiResponse extends JsonResponse
         $results = $this->getResults($data);
 
         return [
-            'status'  => $this->getStatusMessage(),
-            'count'   => count($results),
-            'results' => $results,
+          'status'  => $this->getStatusMessage(),
+          'count'   => count($results),
+          'results' => $results,
         ];
     }
 }
