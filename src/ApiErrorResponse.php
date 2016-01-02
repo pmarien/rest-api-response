@@ -18,15 +18,18 @@ class ApiErrorResponse extends AbstractApiResponse
      * @param int $status
      * @param array $headers
      */
-    public function __construct(\Exception $data, $status = Response::HTTP_INTERNAL_SERVER_ERROR, $headers = array())
-    {
+    public function __construct(
+      \Exception $data,
+      $status = Response::HTTP_INTERNAL_SERVER_ERROR,
+      $headers = array()
+    ) {
         if ($data instanceof CriticalExceptionInterface) {
             $status = $data->getHttpStatusCode();
         } elseif ($data instanceof UncriticalExceptionInterface) {
             $status = Response::HTTP_OK;
         }
         parent::__construct($data, $status, $headers);
-
+        $this->headers->set('X-Status-Code', $status);
     }
 
     /**
@@ -64,10 +67,10 @@ class ApiErrorResponse extends AbstractApiResponse
     protected function buildError(\Exception $exception)
     {
         $result = [
-            'code'     => $exception->getCode(),
-            'message'  => $exception->getMessage(),
-            'previous' => null,
-            'data'     => null,
+          'code'     => $exception->getCode(),
+          'message'  => $exception->getMessage(),
+          'previous' => null,
+          'data'     => null,
         ];
 
         if ($exception->getPrevious() !== null) {
